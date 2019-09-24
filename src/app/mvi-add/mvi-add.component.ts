@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BusinessService } from '../business.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mvi-add',
@@ -9,7 +10,8 @@ import { BusinessService } from '../business.service';
 })
 export class MviAddComponent implements OnInit {
   angForm: FormGroup;
-  constructor(private fb: FormBuilder, private bs: BusinessService) {
+  constructor(private fb: FormBuilder, private bs: BusinessService,
+    private router: Router) {
   }
 
   createForm() {
@@ -20,8 +22,18 @@ export class MviAddComponent implements OnInit {
       mvi_favorites: new FormControl('', Validators.required ),
     });
   }
+  clearForm() {
+
+    this.angForm.reset({
+          mvi_id: '',
+          mvi_name: '',
+          mvi_type: '',
+          mvi_favorites: '',
+         });
+    }
   addBusiness(mvi_id, mvi_name,mvi_type, mvi_favorites) {
     this.bs.addBusiness(mvi_id, mvi_name, mvi_type, mvi_favorites);
+    this.clearForm();
   }
   ngOnInit() {
     this.createForm();

@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'business',
     component: MviGetComponent
-  }
+  },
+  { path: '',
+    redirectTo: 'business/create',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
