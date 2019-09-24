@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angularcrud</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <script type="text/javascript">
+  var rows = 5; toskip = false;
+  for(var i=0; i<=rows; i++){
+      for(var k =i ; k<= (rows-i);k++) {
+          document.write('&nbsp');
+      }
+      for (var j=1 ; j<=i ; j++) {
+          if(!toskip) {
+            if(j == 1){
+            document.write('&nbsp'+String(1)+"  ");
+          }
+          if(j ==2 && i ==2) {
+            document.write(String(4)+" " +String(1));
+          }
+          if( j ==3){
+            document.write(String(4)+" "+String(9)+" "+String(4)+" "+String(1));
+            document.write("<br/>")
+            document.write('&nbsp'+" "+String(1)+" "+String(4)+" "+String(1));
+            document.write("<br/>");
+            document.write('&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+ String(4)+'&nbsp');
+            toskip = true;
+            break;
+          }
+          }
+         
+      }
+      if(!toskip) {
+        document.write("<br/>")
+      }
+      
+  }
+      </script>
+
+</body>
+</html>
